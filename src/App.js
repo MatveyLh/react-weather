@@ -25,8 +25,8 @@ class App extends React.Component {
                 this.setState({error: 'Please complete the data!'});
             }
 
-            else if(data.name.toLowerCase().includes(this.state.value.toLowerCase())) {
-                this.setState({id: data.id, isFinished: true})
+            else if(data.name.toLowerCase() == this.state.value.toLowerCase()) {
+                this.setState({id: data.id, isFinished: true});
                 axios.post(`http://api.openweathermap.org/data/2.5/weather?id=${data.id}&appid=${this.state.api_key}`)
                     .then(res => {
                         var flag = false;
